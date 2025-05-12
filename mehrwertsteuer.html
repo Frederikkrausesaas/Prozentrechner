@@ -2,80 +2,118 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mehrwertsteuerrechner</title>
+  <title>MwSt-Rechner</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: #f7f9fb;
+      margin: 0;
       padding: 2rem;
+    }
+
+    .container {
       max-width: 500px;
       margin: auto;
+      background: white;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
+
+    h2 {
+      text-align: center;
+      color: #003366;
+    }
+
     label {
-      display: block;
+      font-weight: bold;
       margin-top: 1rem;
+      display: block;
     }
+
     input, select {
       width: 100%;
-      padding: 0.5rem;
+      padding: 0.6rem;
       margin-top: 0.3rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
     }
-    .result {
+
+    .btn {
+      display: block;
+      width: 100%;
       margin-top: 1.5rem;
-      font-weight: bold;
+      padding: 0.8rem;
+      background-color: #3399ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #2b85dd;
     }
   </style>
 </head>
 <body>
 
-  <h1>Mehrwertsteuerrechner</h1>
+<div class="container">
+  <h2>MwSt-Rechner: Einfach berechnen</h2>
 
-  <label for="type">Berechnungstyp:</label>
-  <select id="type">
-    <option value="netto">Netto → Brutto</option>
-    <option value="brutto">Brutto → Netto</option>
+  <label for="country">Mehrwertsteuer für:</label>
+  <select id="country">
+    <option value="19">Deutschland (19%)</option>
+    <option value="7">Deutschland (7%)</option>
+    <!-- Weitere Länder bei Bedarf -->
   </select>
 
-  <label for="amount">Betrag (€):</label>
-  <input type="number" id="amount" placeholder="z. B. 100" min="0" step="0.01">
+  <label for="netto">Netto (ohne MwSt):</label>
+  <input type="number" id="netto" placeholder="z. B. 100" min="0" step="0.01">
 
-  <label for="rate">Mehrwertsteuersatz:</label>
-  <select id="rate">
-    <option value="19">19 %</option>
-    <option value="7">7 %</option>
-  </select>
+  <label for="mwst">+ MwSt-Betrag:</label>
+  <input type="number" id="mwst" disabled>
 
-  <button onclick="calculate()">Berechnen</button>
+  <label for="brutto">= Brutto (mit MwSt):</label>
+  <input type="number" id="brutto" disabled>
 
-  <div class="result" id="result"></div>
+  <button class="btn" onclick="clearFields()">Werte löschen</button>
+</div>
 
-  <script>
-    function calculate() {
-      const type = document.getElementById("type").value;
-      const amount = parseFloat(document.getElementById("amount").value);
-      const rate = parseFloat(document.getElementById("rate").value);
+<script>
+  const nettoInput = document.getElementById('netto');
+  const mwstInput = document.getElementById('mwst');
+  const bruttoInput = document.getElementById('brutto');
+  const countrySelect = document.getElementById('country');
 
-      if (isNaN(amount)) {
-        document.getElementById("result").innerText = "Bitte einen gültigen Betrag eingeben.";
-        return;
-      }
+  function calculate() {
+    const netto = parseFloat(nettoInput.value);
+    const rate = parseFloat(countrySelect.value);
 
-      let mwst, netto, brutto;
+    if (!isNaN(netto)) {
+      const mwst = netto * (rate / 100);
+      const brutto = netto + mwst;
 
-      if (type === "netto") {
-        mwst = amount * (rate / 100);
-        brutto = amount + mwst;
-        document.getElementById("result").innerText =
-          `Nettobetrag: ${amount.toFixed(2)} €\nMehrwertsteuer (${rate}%): ${mwst.toFixed(2)} €\nBruttobetrag: ${brutto.toFixed(2)} €`;
-      } else {
-        brutto = amount;
-        netto = brutto / (1 + rate / 100);
-        mwst = brutto - netto;
-        document.getElementById("result").innerText =
-          `Bruttobetrag: ${brutto.toFixed(2)} €\nMehrwertsteuer (${rate}%): ${mwst.toFixed(2)} €\nNettobetrag: ${netto.toFixed(2)} €`;
-      }
+      mwstInput.value = mwst.toFixed(2);
+      bruttoInput.value = brutto.toFixed(2);
+    } else {
+      mwstInput.value = '';
+      bruttoInput.value = '';
     }
-  </script>
+  }
+
+  function clearFields() {
+    nettoInput.value = '';
+    mwstInput.value = '';
+    bruttoInput.value = '';
+  }
+
+  nettoInput.addEventListener('input', calculate);
+  countrySelect.addEventListener('change', calculate);
+</script>
 
 </body>
 </html>
