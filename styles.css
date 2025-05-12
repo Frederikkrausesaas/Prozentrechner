@@ -1,75 +1,110 @@
+/* ========== Google Fonts Import ========== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap');
+
 /* ========== Basis-Einstellungen ========== */
+:root {
+  --primary: #0044aa;
+  --primary-dark: #002f80;
+  --accent: #007bff;
+  --background: #f4f7fa;
+  --text: #222;
+  --card-bg: #fff;
+  --radius: 12px;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: #f4f4f4;
-  color: #222;
-  line-height: 1.6;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
 }
 
 h1, h2, h3 {
   font-family: 'Montserrat', sans-serif;
-  margin-top: 1rem;
-  color: #002244;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
 }
 
-/* ========== Header + Navigation ========== */
+/* ========== Header ========== */
 header {
-  background-color: #0044aa;
+  background-color: var(--primary);
   color: white;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  position: relative;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-header .logo {
-  font-size: 1.6rem;
-  font-weight: bold;
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 
 nav ul {
-  list-style: none;
   display: flex;
+  list-style: none;
   gap: 2rem;
   margin: 0;
   padding: 0;
 }
 
-nav ul li a {
+nav li a {
   color: white;
-  text-decoration: none;
   font-weight: 500;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s;
 }
 
-nav ul li a:hover {
-  opacity: 0.8;
+nav li a:hover {
+  opacity: 0.75;
 }
 
+/* Responsive Nav */
 .menu-icon {
   display: none;
-  font-size: 1.8rem;
+  font-size: 2rem;
   cursor: pointer;
   color: white;
 }
 
-/* Mobile Menü */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
+    background-color: var(--primary);
     position: absolute;
-    top: 60px;
     right: 0;
-    background-color: #0044aa;
-    width: 200px;
+    top: 70px;
+    width: 220px;
     display: none;
     padding: 1rem;
   }
@@ -83,79 +118,101 @@ nav ul li a:hover {
   }
 }
 
-/* ========== Intro-Textbereich ========== */
+/* ========== Hero/Intro ========== */
 .intro {
-  background-color: white;
+  background: white;
+  padding: 4rem 2rem;
+  margin: 2rem auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.intro p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* ========== Grid für Rechner ========== */
+.grid-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  padding: 2rem 0;
+}
+
+.card {
+  background-color: var(--card-bg);
   padding: 2rem;
-  margin-top: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ========== Rechner Boxen ========== */
-.rechner-box {
-  background-color: white;
-  border-radius: 12px;
-  padding: 2rem;
-  margin-top: 2rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.1);
 }
 
-.rechner-box span {
-  margin: 0 0.5rem;
+.card h3 {
+  margin-bottom: 0.5rem;
 }
 
-.rechner-box input {
-  width: 120px;
-  padding: 0.5rem;
-  font-size: 1rem;
-  margin: 0.5rem 0.3rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+.card ul {
+  padding-left: 1.2rem;
+  margin-top: 0.5rem;
 }
 
-.rechner-box button {
-  padding: 0.6rem 1.2rem;
-  background-color: #0044aa;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-left: 0.5rem;
-}
-
-.rechner-box button:hover {
-  background-color: #003080;
-}
-
-/* ========== Ergebnis-Box ========== */
-.result {
+.cta-button {
+  display: inline-block;
   margin-top: 1rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #0044aa;
+  padding: 0.7rem 1.5rem;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.2s ease;
 }
 
-.copy-btn {
-  margin-left: 0.5rem;
-  background: none;
+.cta-button:hover {
+  background-color: var(--primary-dark);
+}
+
+/* ========== Newsletter ========== */
+.newsletter form {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.newsletter input[type=\"email\"] {
+  padding: 0.7rem;
+  width: 300px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.newsletter button {
+  padding: 0.7rem 1.2rem;
+  background: var(--primary);
+  color: white;
   border: none;
-  color: #0044aa;
+  border-radius: 6px;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 1rem;
 }
 
-.copy-btn:hover {
-  color: #002f80;
+.newsletter button:hover {
+  background-color: var(--primary-dark);
 }
 
 /* ========== Footer ========== */
 footer {
-  background-color: #002244;
+  background-color: var(--primary-dark);
   color: white;
-  padding: 2rem;
   text-align: center;
+  padding: 2rem 1rem;
   margin-top: 4rem;
 }
 
@@ -166,4 +223,34 @@ footer a {
 
 footer a:hover {
   opacity: 0.8;
+}
+
+/* ========== Sektionen ========== */
+.section {
+  padding: 4rem 2rem;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 2rem auto;
+}
+
+.section:nth-child(even) {
+  background: #eef3fa;
+}
+
+/* ========== Mobile Optimization ========== */
+@media (max-width: 500px) {
+  .newsletter form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .newsletter input {
+    width: 100%;
+  }
+
+  .cta-button {
+    width: 100%;
+    text-align: center;
+  }
 }
