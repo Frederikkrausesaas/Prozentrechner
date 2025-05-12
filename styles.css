@@ -153,3 +153,106 @@ nav a {
 nav a:hover {
   color: #dceeff;
 }
+/* Basis-Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', 'Montserrat', sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+  color: #111;
+  padding: 0 1rem;
+}
+
+/* Container zentral mit max-Breite */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #0077cc;
+  font-weight: 500;
+}
+
+.intro {
+  margin-bottom: 2rem;
+}
+
+.intro h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #002244;
+}
+
+.question {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.question input {
+  width: 100px;
+  padding: 0.5rem;
+}
+
+.question button {
+  padding: 0.5rem 1rem;
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* Responsives Verhalten */
+@media (max-width: 600px) {
+  .question {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .question input {
+    width: 100%;
+  }
+
+  .question button {
+    width: 100%;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+}
