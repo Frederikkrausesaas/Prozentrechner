@@ -10,20 +10,104 @@
   <header>
     <nav>
       <ul>
-        <li><a href="index.html">Startseite</a></li>
+        <li><a href="index.html">Start</a></li>
         <li><a href="prozentsatz.html">Prozentsatz</a></li>
         <li><a href="mehrwertsteuer.html">Mehrwertsteuer</a></li>
         <li><a href="rabatt.html">Rabatt</a></li>
       </ul>
     </nav>
   </header>
+
   <main>
     <div class="container">
       <div class="card">
-        <h1>Willkommen!</h1>
-        <p>Wähle oben einen Rechner.</p>
+        <h1>Prozentrechner – Direkt loslegen!</h1>
+
+        <!-- Rechner 1 -->
+        <h3>Wie viel sind X % von Y?</h3>
+        <input type="number" id="p1" placeholder="Prozentwert (z. B. 20)" />
+        <input type="number" id="g1" placeholder="Grundwert (z. B. 150)" />
+        <button onclick="rechne1()">Berechnen</button>
+        <p id="erg1"></p>
+
+        <!-- Rechner 2 -->
+        <h3>Wie viel % sind X von Y?</h3>
+        <input type="number" id="w2" placeholder="Teilwert (z. B. 30)" />
+        <input type="number" id="g2" placeholder="Grundwert (z. B. 150)" />
+        <button onclick="rechne2()">Berechnen</button>
+        <p id="erg2"></p>
+
+        <!-- Rechner 3 -->
+        <h3>Von X zu Y – wie viel % ist das?</h3>
+        <input type="number" id="x3" placeholder="X (z. B. 100)" />
+        <input type="number" id="y3" placeholder="Y (z. B. 130)" />
+        <button onclick="rechne3()">Berechnen</button>
+        <p id="erg3"></p>
+
+        <!-- Rechner 4 -->
+        <h3>Wie viel sind Y inkl. MwSt (19%)?</h3>
+        <input type="number" id="netto4" placeholder="Nettobetrag (z. B. 100)" />
+        <button onclick="rechne4()">Berechnen</button>
+        <p id="erg4"></p>
+
+        <!-- Rechner 5 -->
+        <h3>Wie viel waren X € vor MwSt?</h3>
+        <input type="number" id="brutto5" placeholder="Bruttobetrag (z. B. 119)" />
+        <button onclick="rechne5()">Berechnen</button>
+        <p id="erg5"></p>
+
+        <!-- Rechner 6 -->
+        <h3>X € sind wie viel mehr als Y € (in %)?</h3>
+        <input type="number" id="x6" placeholder="X (z. B. 130)" />
+        <input type="number" id="y6" placeholder="Y (z. B. 100)" />
+        <button onclick="rechne6()">Berechnen</button>
+        <p id="erg6"></p>
+
       </div>
     </div>
   </main>
+
+  <script>
+    function rechne1() {
+      const p = parseFloat(document.getElementById("p1").value);
+      const g = parseFloat(document.getElementById("g1").value);
+      const ergebnis = (p / 100) * g;
+      document.getElementById("erg1").innerText = `${p}% von ${g} sind ${ergebnis.toFixed(2)} €`;
+    }
+
+    function rechne2() {
+      const w = parseFloat(document.getElementById("w2").value);
+      const g = parseFloat(document.getElementById("g2").value);
+      const proz = (w / g) * 100;
+      document.getElementById("erg2").innerText = `${w} sind ${proz.toFixed(2)}% von ${g}`;
+    }
+
+    function rechne3() {
+      const x = parseFloat(document.getElementById("x3").value);
+      const y = parseFloat(document.getElementById("y3").value);
+      const diff = y - x;
+      const proz = (diff / x) * 100;
+      document.getElementById("erg3").innerText = `Von ${x} zu ${y} ist eine Änderung von ${proz.toFixed(2)}%`;
+    }
+
+    function rechne4() {
+      const netto = parseFloat(document.getElementById("netto4").value);
+      const brutto = netto * 1.19;
+      document.getElementById("erg4").innerText = `${netto} € netto sind ${brutto.toFixed(2)} € inkl. 19% MwSt`;
+    }
+
+    function rechne5() {
+      const brutto = parseFloat(document.getElementById("brutto5").value);
+      const netto = brutto / 1.19;
+      document.getElementById("erg5").innerText = `${brutto} € brutto sind ${netto.toFixed(2)} € netto (19% MwSt)`;
+    }
+
+    function rechne6() {
+      const x = parseFloat(document.getElementById("x6").value);
+      const y = parseFloat(document.getElementById("y6").value);
+      const proz = ((x - y) / y) * 100;
+      document.getElementById("erg6").innerText = `${x} € sind ${proz.toFixed(2)}% mehr als ${y} €`;
+    }
+  </script>
 </body>
 </html>
