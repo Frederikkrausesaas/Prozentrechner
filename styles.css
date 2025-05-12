@@ -1,5 +1,5 @@
 /* Schriftart hinzufügen */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;500;700&display=swap');
 
 /* Grundlegende Stile */
 body {
@@ -93,6 +93,7 @@ input[type="number"] {
   border-radius: 4px;
   font-size: 1rem;
   box-sizing: border-box;
+  appearance: none; /* Entfernt die Pfeile in den Eingabefeldern */
 }
 
 input[type="number"]:focus {
@@ -133,7 +134,7 @@ input[type="number"]:focus {
 }
 
 .question button:before {
-  content: '→';
+  content: '→'; /* Nur ein Pfeil, kein doppelter Pfeil mehr */
   font-size: 1.5rem;
 }
 
@@ -143,4 +144,17 @@ p {
   color: #333;
   margin-top: 15px;
   text-align: center;
+}
+
+/* Fragen-Spezifische Schriftart */
+.question p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+/* Platzhaltertexte in den Feldern ändern */
+input::placeholder {
+  font-style: italic;
+  color: #888;
 }
