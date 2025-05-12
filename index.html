@@ -6,44 +6,51 @@
   <title>Prozentrechner</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       font-family: 'Roboto', sans-serif;
-      background: #f2f6fa;
       margin: 0;
+      padding: 0;
+      background-color: #f7fafd;
+      color: #333;
     }
 
     header {
-      background: #fff;
-      padding: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .logo {
-      font-size: 1.5rem;
       font-weight: 700;
-      color: #0070f3;
+      font-size: 1.4rem;
+      color: #1a73e8;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 15px;
+      gap: 1rem;
       margin: 0;
       padding: 0;
     }
 
-    nav ul li a {
+    nav a {
       text-decoration: none;
       color: #333;
       font-weight: 500;
     }
 
+    nav a:hover {
+      color: #1a73e8;
+    }
+
     main {
-      padding: 40px 20px;
+      padding: 30px 20px 60px;
       display: flex;
       justify-content: center;
     }
@@ -53,53 +60,70 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 25px;
+      gap: 20px;
     }
 
     .intro {
-      background: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     }
 
     .question {
-      background: white;
+      background: #ffffff;
+      padding: 1rem;
       border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-      padding: 20px;
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       gap: 10px;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     }
 
-    .question input, .question select {
-      padding: 10px;
+    .question input,
+    .question select {
+      padding: 0.5rem;
       border: 1px solid #ccc;
       border-radius: 6px;
-      min-width: 90px;
-      font-size: 1rem;
+      width: 100px;
     }
 
     .question button {
-      background: #0070f3;
+      background-color: #1a73e8;
       color: white;
       border: none;
+      padding: 0.5rem 0.9rem;
       border-radius: 6px;
-      padding: 10px 15px;
-      font-size: 1.2rem;
       cursor: pointer;
+      font-size: 1rem;
     }
 
     .question button:hover {
-      background: #0059c1;
+      background-color: #135fc4;
     }
 
     .result {
-      margin-top: 5px;
-      font-weight: 500;
-      color: #0070f3;
+      font-weight: 700;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.05rem;
+      color: #202124;
+    }
+
+    .copy-btn {
+      background-color: #f1f3f4;
+      border: none;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .copy-btn:hover {
+      background-color: #e0e0e0;
     }
   </style>
 </head>
@@ -132,61 +156,80 @@
       <!-- Frage 1 -->
       <div class="question">
         <span>Wie viel sind</span>
-        <input id="p1" type="number" placeholder="z. B. 20">
+        <input id="p1" type="number" placeholder="z. B. 25">
         <span>% von</span>
-        <input id="g1" type="number" placeholder="z. B. 150">
+        <input id="g1" type="number" placeholder="z. B. 200">
         <button onclick="rechne1()">→</button>
-        <div id="erg1" class="result"></div>
+        <div class="result">
+          <span id="erg1"></span>
+          <button class="copy-btn" onclick="copyToClipboard('erg1')"><i class="fa fa-copy"></i></button>
+        </div>
       </div>
 
       <!-- Frage 2 -->
       <div class="question">
         <span>Wie viel % sind</span>
-        <input id="w2" type="number" placeholder="z. B. 30">
+        <input id="w2" type="number" placeholder="z. B. 50">
         <span>von</span>
-        <input id="g2" type="number" placeholder="z. B. 150">
+        <input id="g2" type="number" placeholder="z. B. 200">
         <button onclick="rechne2()">→</button>
-        <div id="erg2" class="result"></div>
+        <div class="result">
+          <span id="erg2"></span>
+          <button class="copy-btn" onclick="copyToClipboard('erg2')"><i class="fa fa-copy"></i></button>
+        </div>
       </div>
 
       <!-- Frage 3 -->
       <div class="question">
         <span>Von</span>
-        <input id="x3" type="number" placeholder="z. B. 100">
+        <input id="x3" type="number" placeholder="z. B. 200">
         <span>zu</span>
-        <input id="y3" type="number" placeholder="z. B. 130">
-        <span>… wie viel %?</span>
+        <input id="y3" type="number" placeholder="z. B. 50">
+        <span>sind wie viel %?</span>
         <button onclick="rechne3()">→</button>
-        <div id="erg3" class="result"></div>
+        <div class="result">
+          <span id="erg3"></span>
+          <button class="copy-btn" onclick="copyToClipboard('erg3')"><i class="fa fa-copy"></i></button>
+        </div>
       </div>
 
       <!-- Frage 4 -->
       <div class="question">
         <span>Wie viel sind</span>
-        <input id="netto4" type="number" placeholder="z. B. 100">
+        <input id="netto4" type="number" placeholder="Netto €">
         <span>€ inkl. MwSt?</span>
         <button onclick="rechne4()">→</button>
-        <div id="erg4" class="result"></div>
+        <div class="result">
+          <span id="erg4"></span>
+          <button class="copy-btn" onclick="copyToClipboard('erg4')"><i class="fa fa-copy"></i></button>
+        </div>
       </div>
 
       <!-- Frage 5 -->
       <div class="question">
         <span>Mehrwertsteuer</span>
-        <input id="brutto5" type="number" placeholder="z. B. 119">
-        <span>€ → Netto?</span>
+        <input id="brutto5" type="number" placeholder="Brutto €">
+        <span>€</span>
         <button onclick="rechne5()">→</button>
-        <div id="erg5" class="result"></div>
+        <div class="result">
+          <span id="erg5"></span>
+          <button class="copy-btn" onclick="copyToClipboard('erg5')"><i class="fa fa-copy"></i></button>
+        </div>
       </div>
 
       <!-- Frage 6 -->
       <div class="question">
-        <input id="x6" type="number" placeholder="z. B. 30">
+        <input id="x6" type="number" placeholder="z. B. 200">
         <span>sind</span>
-        <input id="y6" type="number" placeholder="z. B. 20">
-        <span>% mehr als?</span>
+        <input id="y6" type="number" placeholder="z. B. 150">
+        <span>% mehr als</span>
         <button onclick="rechne6()">→</button>
-        <div id="erg6" class="result"></div>
+        <div class="result">
+          <span id="erg6"></span>
+          <button class="copy-btn" onclick="copyToClipboard('erg6')"><i class="fa fa-copy"></i></button>
+        </div>
       </div>
+
     </div>
   </main>
 
@@ -223,7 +266,7 @@
       const netto = parseFloat(document.getElementById("netto4").value);
       if (!isNaN(netto)) {
         const brutto = netto * 1.19;
-        document.getElementById("erg4").innerText = `${netto} € netto sind ${brutto.toFixed(2)} € inkl. 19% MwSt`;
+        document.getElementById("erg4").innerText = `${netto.toFixed(2)} € netto sind ${brutto.toFixed(2)} € inkl. 19% MwSt`;
       }
     }
 
@@ -231,7 +274,7 @@
       const brutto = parseFloat(document.getElementById("brutto5").value);
       if (!isNaN(brutto)) {
         const netto = brutto / 1.19;
-        document.getElementById("erg5").innerText = `${brutto} € brutto sind ${netto.toFixed(2)} € netto (19% MwSt)`;
+        document.getElementById("erg5").innerText = `${brutto.toFixed(2)} € brutto sind ${netto.toFixed(2)} € netto (19% MwSt)`;
       }
     }
 
@@ -240,8 +283,16 @@
       const y = parseFloat(document.getElementById("y6").value);
       if (!isNaN(x) && !isNaN(y) && y !== 0) {
         const proz = ((x - y) / y) * 100;
-        document.getElementById("erg6").innerText = `${x} ist ${proz.toFixed(2)}% mehr als ${y}`;
+        document.getElementById("erg6").innerText = `${x} € sind ${proz.toFixed(2)}% mehr als ${y} €`;
       }
+    }
+
+    function copyToClipboard(id) {
+      const text = document.getElementById(id).innerText;
+      if (!text) return;
+      navigator.clipboard.writeText(text)
+        .then(() => alert("Ergebnis kopiert!"))
+        .catch(err => alert("Fehler beim Kopieren"));
     }
   </script>
 </body>
