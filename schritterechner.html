@@ -133,8 +133,67 @@
     Die Schrittlänge hängt nicht nur von der Beinlänge ab! Auch der persönliche Laufstil und die Gangart sind entscheidend. Besonders Sportler sollten ihre Schrittlänge genau messen.
   </div>
 
-  <button>Berechnen</button>
+ <button id="berechnenBtn">Berechnen</button>
 </div>
+
+<div id="ergebnis" style="margin-top: 1.5rem; font-weight: bold; font-size: 1rem;"></div>
+
+<script>
+document.getElementById('berechnenBtn').addEventListener('click', function () {
+  const steps = parseInt(document.getElementById('steps').value);
+  if (isNaN(steps) || steps <= 0) {
+    document.getElementById('ergebnis').innerText = "Bitte eine gültige Schrittanzahl eingeben.";
+    return;
+  }
+
+  // Schritt­länge bestimmen
+  const schrittlaengen = document.getElementsByName('schrittlaenge');
+  let schrittlange = 0.75; // Standard
+  if (schrittlaengen[0].checked) schrittlange = 0.65;
+  if (schrittlaengen[2].checked) {
+    schrittlange = prompt("Bitte geben Sie Ihre Schrittlänge in Metern an (z.B. 0.72):");
+    schrittlange = parseFloat(schrittlange);
+    if (isNaN(schrittlange) || schrittlange <= 0) {
+      document.getElementById('ergebnis').innerText = "Ungültige Schrittlänge.";
+      return;
+    }
+  }
+
+  // Geschwindigkeit
+  const geschwindigkeiten = [
+    3.5, 5.5, 6.5, 9, 12, null
+  ];
+  const geschRadio = document.getElementsByName('geschwindigkeit');
+  let geschw = 3.5;
+  geschRadio.forEach((el, i) => {
+    if (el.checked) {
+      if (geschwindigkeiten[i] === null) {
+        let benutzerGeschw = prompt("Bitte geben Sie Ihre Geschwindigkeit in km/h ein:");
+        benutzerGeschw = parseFloat(benutzerGeschw);
+        if (isNaN(benutzerGeschw) || benutzerGeschw <= 0) {
+          document.getElementById('ergebnis').innerText = "Ungültige Geschwindigkeit.";
+          return;
+        }
+        geschw = benutzerGeschw;
+      } else {
+        geschw = geschwindigkeiten[i];
+      }
+    }
+  });
+
+  // Berechnungen
+  const distanz_m = steps * schrittlange;
+  const distanz_km = distanz_m / 1000;
+  const geschw_m_s = geschw * 1000 / 3600;
+  const dauer_sec = distanz_m / geschw_m_s;
+  const dauer_min = dauer_sec / 60;
+
+  // Ausgabe
+  document.getElementById('ergebnis').innerHTML =
+    `Distanz: <strong>${distanz_m.toFixed(0)} Meter</strong> (${distanz_km.toFixed(2)} km)<br>
+     Dauer: <strong>${dauer_min.toFixed(1)} Minuten</strong> bei ${geschw.toFixed(1)} km/h.`;
+});
+</script>
 
 </body>
 </html>
