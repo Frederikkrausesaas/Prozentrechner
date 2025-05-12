@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rabatt Rechner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="prozentsatz.html">Prozentsatz Rechner</a></li>
+        <li><a href="mehrwertsteuer.html">Mehrwertsteuer Rechner</a></li>
+        <li><a href="rabatt.html">Rabatt Rechner</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Rabatt Rechner</h1>
+    <form id="rabattForm">
+      <label for="ursprungsPreis">Ursprünglicher Preis:</label>
+      <input type="number" id="ursprungsPreis" required><br><br>
+
+      <label for="rabattProzent">Rabatt in %:</label>
+      <input type="number" id="rabattProzent" required><br><br>
+
+      <button type="button" onclick="berechneRabatt()">Berechnen</button>
+    </form>
+
+    <p id="rabattErgebnis"></p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dein Name. Alle Rechte vorbehalten.</p>
+  </footer>
+
+  <script>
+    function berechneRabatt() {
+      const ursprungsPreis = parseFloat(document.getElementById("ursprungsPreis").value);
+      const rabattProzent = parseFloat(document.getElementById("rabattProzent").value);
+
+      if (!isNaN(ursprungsPreis) && !isNaN(rabattProzent)) {
+        const rabattBetrag = (ursprungsPreis * rabattProzent) / 100;
+        const preisNachRabatt = ursprungsPreis - rabattBetrag;
+        document.getElementById("rabattErgebnis").innerText = "Rabatt: " + rabattBetrag.toFixed(2) + " €, Neuer Preis: " + preisNachRabatt.toFixed(2) + " €";
+      } else {
+        document.getElementById("rabattErgebnis").innerText = "Bitte beide Werte eingeben!";
+      }
+    }
+  </script>
+</body>
+</html>
