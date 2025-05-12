@@ -2,18 +2,56 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>MwSt-Rechner</title>
+  <title>Mehrwertsteuerrechner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #f7f9fb;
       margin: 0;
-      padding: 2rem;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0056b3; /* dunkleres Blau */
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      display: inline;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #dceeff;
     }
 
     .container {
       max-width: 500px;
-      margin: auto;
+      margin: 2rem auto;
       background: white;
       border: 1px solid #d0d7de;
       border-radius: 8px;
@@ -61,14 +99,24 @@
 </head>
 <body>
 
+<header>
+  <div class="logo">MwSt-Rechner</div>
+  <nav>
+    <ul>
+      <li><a href="#">Start</a></li>
+      <li><a href="#">Rechner</a></li>
+      <li><a href="#">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+
 <div class="container">
-  <h2>MwSt-Rechner: Einfach berechnen</h2>
+  <h2>Mehrwertsteuer berechnen</h2>
 
   <label for="country">Mehrwertsteuer für:</label>
   <select id="country">
     <option value="19">Deutschland (19%)</option>
     <option value="7">Deutschland (7%)</option>
-    <!-- Weitere Länder bei Bedarf -->
   </select>
 
   <label for="netto">Netto (ohne MwSt):</label>
