@@ -3,176 +3,235 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prozentrechner – Einfach % rechnen</title>
-  <meta name="description" content="Einfach Prozent berechnen mit dem kostenlosen Online-Prozentrechner. Schritt-für-Schritt-Erklärungen inklusive.">
+  <title>Prozentrechner</title>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
-      background-color: #f5f7fa;
-      color: #222;
+      padding: 0;
+      background-color: #f7fafd;
+      color: #333;
     }
 
     header {
-      background-color: #1a73e8;
-      color: #fff;
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
     }
 
     .logo {
-      font-size: 1.5rem;
       font-weight: 700;
+      font-size: 1.4rem;
+      color: #1a73e8;
     }
 
     nav ul {
       list-style: none;
+      display: flex;
+      gap: 1rem;
       margin: 0;
       padding: 0;
-      display: flex;
-      gap: 1.2rem;
     }
 
     nav a {
-      color: #fff;
       text-decoration: none;
+      color: #333;
       font-weight: 500;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: #1a73e8;
     }
 
-    .menu-toggle {
-      display: none;
-      font-size: 1.5rem;
+    main {
+      padding: 30px 20px 60px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 700px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .intro {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .question {
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .question input,
+    .question select {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 100px;
+    }
+
+    .question button {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
       cursor: pointer;
+      font-size: 1rem;
     }
 
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #1a73e8;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 200px;
-        padding: 1rem;
-        box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.15);
-      }
+    .question button:hover {
+      background-color: #135fc4;
+    }
 
-      nav ul.open {
-        display: flex;
-      }
+    .result {
+      font-weight: 700;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.05rem;
+      color: #202124;
+    }
 
-      .menu-toggle {
-        display: block;
-        color: #fff;
-      }
+    .copy-btn {
+      background-color: #f1f3f4;
+      border: none;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .copy-btn:hover {
+      background-color: #e0e0e0;
     }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">rechneProzente.de</div>
-    <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
     <nav>
-      <ul id="nav-links">
-        <li><a href="index.html">Startseite</a></li>
-        <li><a href="prozentsatz.html">Prozentrechner</a></li>
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="prozentsatz.html">Prozentsatz</a></li>
         <li><a href="mehrwertsteuer.html">Mehrwertsteuer</a></li>
         <li><a href="rabatt.html">Rabatt</a></li>
-        <li><a href="schritte.html">Schrittrechner</a></li>
-        <li><a href="kaffee.html">Kaffeerechner</a></li>
-        <li><a href="jeans.html">Jeansgrößen</a></li>
-        <li><a href="taschenrechner.html">Taschenrechner</a></li>
-        <li><a href="co2.html">CO₂-Rechner</a></li>
-        <li><a href="strom.html">Stromverbrauch</a></li>
-        <li><a href="wasser.html">Wasserkosten</a></li>
-        <li><a href="alle.html">Alle Rechner</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="schritterechner.html">Schritte in KM</a></li>
       </ul>
     </nav>
   </header>
+
   <main>
-    <section class="intro" style="padding: 2rem; max-width: 900px; margin: auto;">
-      <h1>Prozentrechner: % Super-einfach Prozent berechnen</h1>
-      <p>
-        Hallo! Schön, dass du da bist! Dein Frust mit Prozentrechnungen hat jetzt ein Ende – versprochen!
-        Innerhalb der nächsten 12 Sekunden lösen wir garantiert dein Prozent-Problem. Starte direkt mit
-        unserem kinderleichten Prozentrechner oder frische dein Wissen mit übersichtlichen Formeln,
-        Schritt-für-Schritt-Anleitungen und Eselsbrücken wieder auf.
-      </p>
-    </section>
-
-    <section class="rechner-section" style="padding: 2rem; max-width: 900px; margin: auto;">
-      <!-- Rechner 1 -->
-      <div class="rechner-box">
-        <h2>1. Wie viel sind X % von Y?</h2>
-        <input id="p1" type="number" placeholder="z. B. 25"> %
-        von <input id="g1" type="number" placeholder="z. B. 200">
-        <button onclick="rechne1()">Berechnen</button>
-        <div class="result"><span id="erg1"></span></div>
+    <div class="container">
+      <div class="intro">
+        <h2>Prozentrechner: % Super-einfach Prozent berechnen – rechneProzente.de</h2>
+        <p>
+          Hallo! Schön, dass du da bist! Dein Frust mit Prozentrechnungen hat jetzt ein Ende – versprochen!
+          Innerhalb der nächsten 12 Sekunden lösen wir garantiert dein Prozent-Problem. Starte direkt mit
+          unserem kinderleichten Prozentrechner oder frische dein Wissen mit übersichtlichen Formeln,
+          Schritt-für-Schritt-Anleitungen und Eselsbrücken wieder auf.
+        </p>
       </div>
 
-      <!-- Rechner 2 -->
-      <div class="rechner-box">
-        <h2>2. Wie viel % sind X von Y?</h2>
+      <!-- Frage 1 -->
+      <div class="question">
+        <span>Wie viel sind</span>
+        <input id="p1" type="number" placeholder="z. B. 25">
+        <span>% von</span>
+        <input id="g1" type="number" placeholder="z. B. 200">
+        <button onclick="rechne1()">→</button>
+        <div class="result">
+          <span id="erg1"></span>
+          <button class="copy-btn" onclick="copyToClipboard('erg1')"><i class="fa fa-copy"></i></button>
+        </div>
+      </div>
+
+      <!-- Frage 2 -->
+      <div class="question">
+        <span>Wie viel % sind</span>
         <input id="w2" type="number" placeholder="z. B. 50">
-        von <input id="g2" type="number" placeholder="z. B. 200">
-        <button onclick="rechne2()">Berechnen</button>
-        <div class="result"><span id="erg2"></span></div>
+        <span>von</span>
+        <input id="g2" type="number" placeholder="z. B. 200">
+        <button onclick="rechne2()">→</button>
+        <div class="result">
+          <span id="erg2"></span>
+          <button class="copy-btn" onclick="copyToClipboard('erg2')"><i class="fa fa-copy"></i></button>
+        </div>
       </div>
 
-      <!-- Rechner 3 -->
-      <div class="rechner-box">
-        <h2>3. Wie viel % Unterschied zwischen X und Y?</h2>
-        Von <input id="x3" type="number" placeholder="z. B. 200">
-        zu <input id="y3" type="number" placeholder="z. B. 50">
-        <button onclick="rechne3()">Berechnen</button>
-        <div class="result"><span id="erg3"></span></div>
+      <!-- Frage 3 -->
+      <div class="question">
+        <span>Von</span>
+        <input id="x3" type="number" placeholder="z. B. 200">
+        <span>zu</span>
+        <input id="y3" type="number" placeholder="z. B. 50">
+        <span>sind wie viel %?</span>
+        <button onclick="rechne3()">→</button>
+        <div class="result">
+          <span id="erg3"></span>
+          <button class="copy-btn" onclick="copyToClipboard('erg3')"><i class="fa fa-copy"></i></button>
+        </div>
       </div>
 
-      <!-- Rechner 4 -->
-      <div class="rechner-box">
-        <h2>4. Netto zu Brutto (inkl. MwSt)</h2>
-        Netto: <input id="netto4" type="number" placeholder="z. B. 100">
-        <button onclick="rechne4()">Berechnen</button>
-        <div class="result"><span id="erg4"></span></div>
+      <!-- Frage 4 -->
+      <div class="question">
+        <span>Wie viel sind</span>
+        <input id="netto4" type="number" placeholder="Netto €">
+        <span>€ inkl. MwSt?</span>
+        <button onclick="rechne4()">→</button>
+        <div class="result">
+          <span id="erg4"></span>
+          <button class="copy-btn" onclick="copyToClipboard('erg4')"><i class="fa fa-copy"></i></button>
+        </div>
       </div>
 
-      <!-- Rechner 5 -->
-      <div class="rechner-box">
-        <h2>5. Brutto zu Netto (exkl. MwSt)</h2>
-        Brutto: <input id="brutto5" type="number" placeholder="z. B. 119">
-        <button onclick="rechne5()">Berechnen</button>
-        <div class="result"><span id="erg5"></span></div>
+      <!-- Frage 5 -->
+      <div class="question">
+        <span>Mehrwertsteuer</span>
+        <input id="brutto5" type="number" placeholder="Brutto €">
+        <span>€</span>
+        <button onclick="rechne5()">→</button>
+        <div class="result">
+          <span id="erg5"></span>
+          <button class="copy-btn" onclick="copyToClipboard('erg5')"><i class="fa fa-copy"></i></button>
+        </div>
       </div>
 
-      <!-- Rechner 6 -->
-      <div class="rechner-box">
-        <h2>6. Wie viel % mehr ist X als Y?</h2>
-        <input id="x6" type="number" placeholder="z. B. 200"> ist wie viel % mehr als
+      <!-- Frage 6 -->
+      <div class="question">
+        <input id="x6" type="number" placeholder="z. B. 200">
+        <span>sind</span>
         <input id="y6" type="number" placeholder="z. B. 150">
-        <button onclick="rechne6()">Berechnen</button>
-        <div class="result"><span id="erg6"></span></div>
+        <span>% mehr als</span>
+        <button onclick="rechne6()">→</button>
+        <div class="result">
+          <span id="erg6"></span>
+          <button class="copy-btn" onclick="copyToClipboard('erg6')"><i class="fa fa-copy"></i></button>
+        </div>
       </div>
-    </section>
-  </main>
 
-  <footer style="background: #002244; color: white; padding: 2rem; text-align: center;">
-    <p>&copy; 2025 rechneProzente.de – Alle Rechte vorbehalten.</p>
-    <p><a href="/impressum" style="color: #fff;">Impressum</a> | <a href="/datenschutz" style="color: #fff;">Datenschutz</a></p>
-  </footer>
+    </div>
+  </main>
 
   <script>
     function rechne1() {
@@ -228,13 +287,6 @@
       }
     }
 
-    // Optional: Responsive Navigation Toggle
-    function toggleMenu() {
-      const nav = document.querySelector("nav ul");
-      nav.classList.toggle("show");
-    }
-
-    // Optional: Copy to clipboard
     function copyToClipboard(id) {
       const text = document.getElementById(id).innerText;
       if (!text) return;
@@ -243,20 +295,5 @@
         .catch(err => alert("Fehler beim Kopieren"));
     }
   </script>
-  <!-- Header wird automatisch geladen -->
-  <div id="header"></div>
-
-  <!-- Dein eigentlicher Seiteninhalt hier -->
-  <main>
-    <!-- z. B. dein Rechner etc. -->
-  </main>
-
-  <!-- Footer wird automatisch geladen -->
-  <div id="footer"></div>
-
-  <!-- JavaScript am Ende laden -->
-  <script src="components.js"></script>
-  <script src="main.js"></script> <!-- falls du weiteren Code auslagerst -->
 </body>
 </html>
-
