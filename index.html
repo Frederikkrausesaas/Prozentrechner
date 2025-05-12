@@ -2,298 +2,106 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prozentrechner</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RechneProzente - Startseite</title>
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f7fafd;
-      color: #333;
+      background-color: #f0f6ff;
+      color: #003366;
     }
 
     header {
-      background-color: #ffffff;
-      border-bottom: 1px solid #ddd;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background-color: #005baf;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
     }
 
-    .logo {
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: #1a73e8;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
+    h1 {
       margin: 0;
-      padding: 0;
+      font-size: 2.5em;
     }
 
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #1a73e8;
-    }
-
-    main {
-      padding: 30px 20px 60px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .container {
-      max-width: 700px;
-      width: 100%;
+    nav {
+      padding: 20px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-    }
-
-    .intro {
-      background: #ffffff;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .question {
-      background: #ffffff;
-      padding: 1rem;
-      border-radius: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
       align-items: center;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     }
 
-    .question input,
-    .question select {
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      width: 100px;
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 400px;
+      width: 100%;
     }
 
-    .question button {
-      background-color: #1a73e8;
+    li {
+      margin: 10px 0;
+      background-color: #ffffff;
+      border-left: 5px solid #007bff;
+      padding: 10px 15px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    li:hover {
+      background-color: #e6f0ff;
+    }
+
+    a {
+      text-decoration: none;
+      color: #003366;
+      font-weight: bold;
+    }
+
+    .button-container {
+      margin-top: 30px;
+    }
+
+    .alle-button {
+      background-color: #007bff;
       color: white;
       border: none;
-      padding: 0.5rem 0.9rem;
+      padding: 12px 24px;
+      font-size: 1em;
       border-radius: 6px;
       cursor: pointer;
-      font-size: 1rem;
+      transition: background-color 0.3s;
     }
 
-    .question button:hover {
-      background-color: #135fc4;
-    }
-
-    .result {
-      font-weight: 700;
-      margin-top: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 1.05rem;
-      color: #202124;
-    }
-
-    .copy-btn {
-      background-color: #f1f3f4;
-      border: none;
-      padding: 4px 8px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-
-    .copy-btn:hover {
-      background-color: #e0e0e0;
+    .alle-button:hover {
+      background-color: #005bb5;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="logo">rechneProzente.de</div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Start</a></li>
-        <li><a href="prozentsatz.html">Prozentsatz</a></li>
-        <li><a href="mehrwertsteuer.html">Mehrwertsteuer</a></li>
-        <li><a href="rabatt.html">Rabatt</a></li>
-        <li><a href="schritterechner.html">Schritte in KM</a></li>
-      </ul>
-    </nav>
+    <h1>RechneProzente - Wir lösen das für Sie.</h1>
   </header>
 
-  <main>
-    <div class="container">
-      <div class="intro">
-        <h2>Prozentrechner: % Super-einfach Prozent berechnen – rechneProzente.de</h2>
-        <p>
-          Hallo! Schön, dass du da bist! Dein Frust mit Prozentrechnungen hat jetzt ein Ende – versprochen!
-          Innerhalb der nächsten 12 Sekunden lösen wir garantiert dein Prozent-Problem. Starte direkt mit
-          unserem kinderleichten Prozentrechner oder frische dein Wissen mit übersichtlichen Formeln,
-          Schritt-für-Schritt-Anleitungen und Eselsbrücken wieder auf.
-        </p>
-      </div>
+  <nav>
+    <ul>
+      <li><a href="prozentsatz.html">Prozentrechner</a></li>
+      <li><a href="mehrwertsteuer.html">Mehrwertsteuerrechner</a></li>
+      <li><a href="rabatt.html">Rabattrechner</a></li>
+      <li><a href="schrittrechner.html">Schrittrechner</a></li>
+      <li><a href="kaffee.html">Kaffeerechner</a></li>
+      <li><a href="jeansgroessen.html">Jeansgrößenrechner</a></li>
+      <li><a href="taschenrechner.html">Taschenrechner</a></li>
+      <li><a href="co2.html">CO₂ Fußabdruck Rechner</a></li>
+      <li><a href="strom.html">Stromverbrauchsrechner</a></li>
+      <li><a href="wasser.html">Wasserkostenrechner</a></li>
+    </ul>
 
-      <!-- Frage 1 -->
-      <div class="question">
-        <span>Wie viel sind</span>
-        <input id="p1" type="number" placeholder="z. B. 25">
-        <span>% von</span>
-        <input id="g1" type="number" placeholder="z. B. 200">
-        <button onclick="rechne1()">→</button>
-        <div class="result">
-          <span id="erg1"></span>
-          <button class="copy-btn" onclick="copyToClipboard('erg1')"><i class="fa fa-copy"></i></button>
-        </div>
-      </div>
-
-      <!-- Frage 2 -->
-      <div class="question">
-        <span>Wie viel % sind</span>
-        <input id="w2" type="number" placeholder="z. B. 50">
-        <span>von</span>
-        <input id="g2" type="number" placeholder="z. B. 200">
-        <button onclick="rechne2()">→</button>
-        <div class="result">
-          <span id="erg2"></span>
-          <button class="copy-btn" onclick="copyToClipboard('erg2')"><i class="fa fa-copy"></i></button>
-        </div>
-      </div>
-
-      <!-- Frage 3 -->
-      <div class="question">
-        <span>Von</span>
-        <input id="x3" type="number" placeholder="z. B. 200">
-        <span>zu</span>
-        <input id="y3" type="number" placeholder="z. B. 50">
-        <span>sind wie viel %?</span>
-        <button onclick="rechne3()">→</button>
-        <div class="result">
-          <span id="erg3"></span>
-          <button class="copy-btn" onclick="copyToClipboard('erg3')"><i class="fa fa-copy"></i></button>
-        </div>
-      </div>
-
-      <!-- Frage 4 -->
-      <div class="question">
-        <span>Wie viel sind</span>
-        <input id="netto4" type="number" placeholder="Netto €">
-        <span>€ inkl. MwSt?</span>
-        <button onclick="rechne4()">→</button>
-        <div class="result">
-          <span id="erg4"></span>
-          <button class="copy-btn" onclick="copyToClipboard('erg4')"><i class="fa fa-copy"></i></button>
-        </div>
-      </div>
-
-      <!-- Frage 5 -->
-      <div class="question">
-        <span>Mehrwertsteuer</span>
-        <input id="brutto5" type="number" placeholder="Brutto €">
-        <span>€</span>
-        <button onclick="rechne5()">→</button>
-        <div class="result">
-          <span id="erg5"></span>
-          <button class="copy-btn" onclick="copyToClipboard('erg5')"><i class="fa fa-copy"></i></button>
-        </div>
-      </div>
-
-      <!-- Frage 6 -->
-      <div class="question">
-        <input id="x6" type="number" placeholder="z. B. 200">
-        <span>sind</span>
-        <input id="y6" type="number" placeholder="z. B. 150">
-        <span>% mehr als</span>
-        <button onclick="rechne6()">→</button>
-        <div class="result">
-          <span id="erg6"></span>
-          <button class="copy-btn" onclick="copyToClipboard('erg6')"><i class="fa fa-copy"></i></button>
-        </div>
-      </div>
-
+    <div class="button-container">
+      <a href="alle.html"><button class="alle-button">Zu allen Rechnern</button></a>
     </div>
-  </main>
+  </nav>
 
-  <script>
-    function rechne1() {
-      const p = parseFloat(document.getElementById("p1").value);
-      const g = parseFloat(document.getElementById("g1").value);
-      if (!isNaN(p) && !isNaN(g)) {
-        const ergebnis = (p / 100) * g;
-        document.getElementById("erg1").innerText = `${p}% von ${g} sind ${ergebnis.toFixed(2)} €`;
-      }
-    }
-
-    function rechne2() {
-      const w = parseFloat(document.getElementById("w2").value);
-      const g = parseFloat(document.getElementById("g2").value);
-      if (!isNaN(w) && !isNaN(g) && g !== 0) {
-        const proz = (w / g) * 100;
-        document.getElementById("erg2").innerText = `${w} sind ${proz.toFixed(2)}% von ${g}`;
-      }
-    }
-
-    function rechne3() {
-      const x = parseFloat(document.getElementById("x3").value);
-      const y = parseFloat(document.getElementById("y3").value);
-      if (!isNaN(x) && !isNaN(y) && x !== 0) {
-        const diff = y - x;
-        const proz = (diff / x) * 100;
-        document.getElementById("erg3").innerText = `Von ${x} zu ${y} ist eine Änderung von ${proz.toFixed(2)}%`;
-      }
-    }
-
-    function rechne4() {
-      const netto = parseFloat(document.getElementById("netto4").value);
-      if (!isNaN(netto)) {
-        const brutto = netto * 1.19;
-        document.getElementById("erg4").innerText = `${netto.toFixed(2)} € netto sind ${brutto.toFixed(2)} € inkl. 19% MwSt`;
-      }
-    }
-
-    function rechne5() {
-      const brutto = parseFloat(document.getElementById("brutto5").value);
-      if (!isNaN(brutto)) {
-        const netto = brutto / 1.19;
-        document.getElementById("erg5").innerText = `${brutto.toFixed(2)} € brutto sind ${netto.toFixed(2)} € netto (19% MwSt)`;
-      }
-    }
-
-    function rechne6() {
-      const x = parseFloat(document.getElementById("x6").value);
-      const y = parseFloat(document.getElementById("y6").value);
-      if (!isNaN(x) && !isNaN(y) && y !== 0) {
-        const proz = ((x - y) / y) * 100;
-        document.getElementById("erg6").innerText = `${x} € sind ${proz.toFixed(2)}% mehr als ${y} €`;
-      }
-    }
-
-    function copyToClipboard(id) {
-      const text = document.getElementById(id).innerText;
-      if (!text) return;
-      navigator.clipboard.writeText(text)
-        .then(() => alert("Ergebnis kopiert!"))
-        .catch(err => alert("Fehler beim Kopieren"));
-    }
-  </script>
 </body>
 </html>
