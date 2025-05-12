@@ -21,78 +21,83 @@
   </header>
 
   <main>
-    <div class="container">
-      <section class="welcome">
-        <h1>Prozentrechner: % Super-einfach Prozent berechnen – berechnen.de</h1>
-        <p>Hallo! Schön, dass du da bist!</p>
-        <p>Dein Frust mit Prozentrechnungen hat jetzt ein Ende – versprochen! Innerhalb der nächsten 12 Sekunden lösen wir garantiert dein Prozent-Problem. </p>
-        <p>Starte direkt mit unserem kinderleichten Prozentrechner oder frische dein Wissen mit übersichtlichen Formeln, Schritt-für-Schritt-Anleitungen und Eselsbrücken wieder auf.</p>
-      </section>
-
-      <div class="card">
-        <h2>Prozentrechner – Direkt loslegen!</h2>
-
-        <!-- Rechner 1: Wie viel sind X % von Y? -->
-        <div class="question">
-          <p>Wie viel sind</p>
-          <input type="number" id="p1" placeholder="20" />
-          <p>von</p>
-          <input type="number" id="g1" placeholder="150" />
-          <button onclick="rechne1()">→</button>
-        </div>
-        <p id="erg1"></p>
-
-        <!-- Rechner 2: Wie viel % sind X von Y? -->
-        <div class="question">
-          <p>Wie viel % sind</p>
-          <input type="number" id="w2" placeholder="30" />
-          <p>von</p>
-          <input type="number" id="g2" placeholder="150" />
-          <button onclick="rechne2()">→</button>
-        </div>
-        <p id="erg2"></p>
-
-        <!-- Rechner 3: Von X zu Y – wie viel % ist das? -->
-        <div class="question">
-          <p>Von</p>
-          <input type="number" id="x3" placeholder="100" />
-          <p>zu</p>
-          <input type="number" id="y3" placeholder="130" />
-          <button onclick="rechne3()">→</button>
-        </div>
-        <p id="erg3"></p>
-
-        <!-- Rechner 4: Wie viel sind Y inkl. MwSt (19%)? -->
-        <div class="question">
-          <p>Wie viel sind</p>
-          <input type="number" id="netto4" placeholder="100" />
-          <p>inkl. MwSt</p>
-          <button onclick="rechne4()">→</button>
-        </div>
-        <p id="erg4"></p>
-
-        <!-- Rechner 5: Wie viel waren X € vor MwSt? -->
-        <div class="question">
-          <p>Wie viel waren</p>
-          <input type="number" id="brutto5" placeholder="119" />
-          <p>vor MwSt?</p>
-          <button onclick="rechne5()">→</button>
-        </div>
-        <p id="erg5"></p>
-
-        <!-- Rechner 6: X € sind wie viel mehr als Y € (in %)? -->
-        <div class="question">
-          <p>Wie viel mehr ist</p>
-          <input type="number" id="x6" placeholder="130" />
-          <p>als</p>
-          <input type="number" id="y6" placeholder="100" />
-          <button onclick="rechne6()">→</button>
-        </div>
-        <p id="erg6"></p>
-
-      </div>
+  <div class="container">
+    <div class="intro">
+      <h2>Prozentrechner: % Super-einfach Prozent berechnen – rechneProzente.de</h2>
+      <p>
+        Hallo! Schön, dass du da bist! Dein Frust mit Prozentrechnungen hat jetzt ein Ende – versprochen!
+        Innerhalb der nächsten 12 Sekunden lösen wir garantiert dein Prozent-Problem. Starte direkt mit
+        unserem kinderleichten Prozentrechner oder frische dein Wissen mit übersichtlichen Formeln,
+        Schritt-für-Schritt-Anleitungen und Eselsbrücken wieder auf.
+      </p>
     </div>
-  </main>
+
+    <!-- Frage 1 -->
+    <div class="question">
+      <span>Wie viel sind</span>
+      <input type="number" placeholder="z. B. 20">
+      <span>von</span>
+      <input type="number" placeholder="z. B. 150">
+      <span>?</span>
+      <button>→</button>
+    </div>
+
+    <!-- Frage 2 -->
+    <div class="question">
+      <span>Wie viel % sind</span>
+      <input type="number" placeholder="z. B. 30">
+      <span>von</span>
+      <input type="number" placeholder="z. B. 150">
+      <span>?</span>
+      <button>→</button>
+    </div>
+
+    <!-- Frage 3 -->
+    <div class="question">
+      <span>Von</span>
+      <input type="number" placeholder="z. B. 100">
+      <span>zu</span>
+      <input type="number" placeholder="z. B. 130">
+      <span>sind wie viel %?</span>
+      <button>→</button>
+    </div>
+
+    <!-- Frage 4 -->
+    <div class="question">
+      <span>Wie viel sind</span>
+      <input type="number" placeholder="z. B. 100">
+      <span>€ inkl. MwSt?</span>
+      <button>→</button>
+    </div>
+
+    <!-- Frage 5 -->
+    <div class="question">
+      <span>Mehrwertsteuer</span>
+      <input type="number" placeholder="z. B. 119">
+      <span>€</span>
+      <span>?</span>
+      <button>→</button>
+    </div>
+
+    <!-- Frage 6 -->
+    <div class="question">
+      <input type="number" placeholder="z. B. 30">
+      <span>sind</span>
+      <span>von wie viel?</span>
+      <button>→</button>
+    </div>
+
+    <!-- Frage 7 -->
+    <div class="question">
+      <input type="number" placeholder="z. B. 130">
+      <span>sind</span>
+      <span>als wie viel?</span>
+      <button>→</button>
+    </div>
+
+  </div>
+</main>
+
 
   <script>
     function rechne1() {
