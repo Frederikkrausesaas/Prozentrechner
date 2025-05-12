@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prozentrechner</title>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -35,9 +35,9 @@
         <!-- Rechner 1: Wie viel sind X % von Y? -->
         <div class="question">
           <p>Wie viel sind</p>
-          <input type="number" id="p1" placeholder="Prozentwert" />
+          <input type="number" id="p1" placeholder="20" />
           <p>von</p>
-          <input type="number" id="g1" placeholder="Grundwert" />
+          <input type="number" id="g1" placeholder="150" />
           <button onclick="rechne1()">→</button>
         </div>
         <p id="erg1"></p>
@@ -45,9 +45,9 @@
         <!-- Rechner 2: Wie viel % sind X von Y? -->
         <div class="question">
           <p>Wie viel % sind</p>
-          <input type="number" id="w2" placeholder="Teilwert" />
+          <input type="number" id="w2" placeholder="30" />
           <p>von</p>
-          <input type="number" id="g2" placeholder="Grundwert" />
+          <input type="number" id="g2" placeholder="150" />
           <button onclick="rechne2()">→</button>
         </div>
         <p id="erg2"></p>
@@ -55,9 +55,9 @@
         <!-- Rechner 3: Von X zu Y – wie viel % ist das? -->
         <div class="question">
           <p>Von</p>
-          <input type="number" id="x3" placeholder="X" />
+          <input type="number" id="x3" placeholder="100" />
           <p>zu</p>
-          <input type="number" id="y3" placeholder="Y" />
+          <input type="number" id="y3" placeholder="130" />
           <button onclick="rechne3()">→</button>
         </div>
         <p id="erg3"></p>
@@ -65,7 +65,7 @@
         <!-- Rechner 4: Wie viel sind Y inkl. MwSt (19%)? -->
         <div class="question">
           <p>Wie viel sind</p>
-          <input type="number" id="netto4" placeholder="Nettobetrag" />
+          <input type="number" id="netto4" placeholder="100" />
           <p>inkl. MwSt</p>
           <button onclick="rechne4()">→</button>
         </div>
@@ -74,7 +74,7 @@
         <!-- Rechner 5: Wie viel waren X € vor MwSt? -->
         <div class="question">
           <p>Wie viel waren</p>
-          <input type="number" id="brutto5" placeholder="Bruttobetrag" />
+          <input type="number" id="brutto5" placeholder="119" />
           <p>vor MwSt?</p>
           <button onclick="rechne5()">→</button>
         </div>
@@ -82,10 +82,10 @@
 
         <!-- Rechner 6: X € sind wie viel mehr als Y € (in %)? -->
         <div class="question">
-          <p>X</p>
-          <input type="number" id="x6" placeholder="X" />
-          <p>sind wie viel mehr als</p>
-          <input type="number" id="y6" placeholder="Y" />
+          <p>Wie viel mehr ist</p>
+          <input type="number" id="x6" placeholder="130" />
+          <p>als</p>
+          <input type="number" id="y6" placeholder="100" />
           <button onclick="rechne6()">→</button>
         </div>
         <p id="erg6"></p>
