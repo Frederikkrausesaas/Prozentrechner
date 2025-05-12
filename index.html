@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prozentrechner</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      font-size: 1rem;
+    }
+    #ergebnis {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Prozentrechner</h1>
+  <label>Wie viel sind <input id="prozent" type="number" placeholder="z. B. 20"> % von <input id="gesamt" type="number" placeholder="z. B. 150">?</label>
+  <button onclick="berechneProzent()">Berechnen</button>
+  <div id="ergebnis"></div>
+
+  <script>
+    function berechneProzent() {
+      const p = parseFloat(document.getElementById("prozent").value);
+      const g = parseFloat(document.getElementById("gesamt").value);
+      if (isNaN(p) || isNaN(g)) {
+        document.getElementById("ergebnis").innerText = "Bitte gültige Zahlen eingeben.";
+        return;
+      }
+      const ergebnis = (p / 100) * g;
+      document.getElementById("ergebnis").innerText = `${p}% von ${g} sind ${ergebnis.toFixed(2)}.`;
+    }
+  </script>
+</body>
+</html>
