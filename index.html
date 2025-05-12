@@ -1,107 +1,145 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RechneProzente - Startseite</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RechneProzente – Startseite</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4ff;
       margin: 0;
       padding: 0;
-      background-color: #f0f6ff;
-      color: #003366;
     }
-
-    header {
-      background-color: #005baf;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-
-    h1 {
-      margin: 0;
-      font-size: 2.5em;
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     }
-
-    nav {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      max-width: 400px;
-      width: 100%;
-    }
-
-    li {
-      margin: 10px 0;
-      background-color: #ffffff;
-      border-left: 5px solid #007bff;
-      padding: 10px 15px;
-      border-radius: 4px;
-      transition: background 0.3s;
-    }
-
-    li:hover {
-      background-color: #e6f0ff;
-    }
-
-    a {
-      text-decoration: none;
-      color: #003366;
-      font-weight: bold;
-    }
-
-    .button-container {
-      margin-top: 30px;
-    }
-
-    .alle-button {
+    .cta-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
       background-color: #007bff;
       color: white;
-      border: none;
-      padding: 12px 24px;
-      font-size: 1em;
-      border-radius: 6px;
-      cursor: pointer;
+      border-radius: 5px;
+      text-decoration: none;
       transition: background-color 0.3s;
     }
-
-    .alle-button:hover {
-      background-color: #005bb5;
+    .cta-button:hover {
+      background-color: #0056b3;
+    }
+    .section {
+      padding: 4rem 2rem;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
     }
   </style>
 </head>
 <body>
+  <div id="header-placeholder"></div>
 
-  <header>
-    <h1>RechneProzente - Wir lösen das für Sie.</h1>
-  </header>
+  <main class="main-content">
+    <section class="intro section">
+      <h1>Willkommen bei RechneProzente</h1>
+      <p>Unsere Vision ist es, jedem Menschen leistungsstarke Online-Werkzeuge an die Hand zu geben, um tägliche Berechnungen effizient, genau und intuitiv durchzuführen.</p>
+    </section>
 
-  <nav>
-    <ul>
-      <li><a href="prozentsatz.html">Prozentrechner</a></li>
-      <li><a href="mehrwertsteuer.html">Mehrwertsteuerrechner</a></li>
-      <li><a href="rabatt.html">Rabattrechner</a></li>
-      <li><a href="schrittrechner.html">Schrittrechner</a></li>
-      <li><a href="kaffee.html">Kaffeerechner</a></li>
-      <li><a href="jeansgroessen.html">Jeansgrößenrechner</a></li>
-      <li><a href="taschenrechner.html">Taschenrechner</a></li>
-      <li><a href="co2.html">CO₂ Fußabdruck Rechner</a></li>
-      <li><a href="strom.html">Stromverbrauchsrechner</a></li>
-      <li><a href="wasser.html">Wasserkostenrechner</a></li>
-    </ul>
+    <section class="features section">
+      <h2>Unsere Funktionshighlights</h2>
+      <ul>
+        <li>🔍 Präzise Berechnungen für jede Lebenslage</li>
+        <li>📱 Optimiert für Smartphones und Tablets</li>
+        <li>🛡️ Datenschutz nach modernsten Standards</li>
+        <li>⚡ Blitzschnelle Ladezeiten durch schlanken Code</li>
+        <li>🆓 100% kostenfrei, keine Anmeldung notwendig</li>
+      </ul>
+    </section>
 
-    <div class="button-container">
-      <a href="alle.html"><button class="alle-button">Zu allen Rechnern</button></a>
-    </div>
-  </nav>
+    <section class="grid-section section">
+      <h2>Unsere Rechner-Tools (Auszug)</h2>
+      <div class="grid-container">
+" + "
+".join(
+  f"        <div class=\"card\">
+          <h3>Rechner {i}</h3>
+          <p>Ein umfassendes Werkzeug für verschiedenste Anwendungsfälle im Alltag. Mit nur wenigen Klicks berechnen Sie komplexe Werte, sparen Zeit und vermeiden Rechenfehler. Rechner {i} eignet sich für Privatpersonen ebenso wie für Unternehmen.</p>
+          <ul>
+            <li>✓ Berechnung in Echtzeit</li>
+            <li>✓ Schritt-für-Schritt Erklärungen</li>
+            <li>✓ Exportfunktionen für Ergebnisse</li>
+            <li>✓ Mobile First Design</li>
+          </ul>
+          <a href=\"rechner{str(i).zfill(4)}.html\" class=\"cta-button\">Jetzt starten</a>
+        </div>" for i in range(1, 201)
+) + "
+      </div>
+    </section>
 
+    <section class="use-cases section">
+      <h2>Anwendungsbeispiele</h2>
+      <p>Unsere Rechner sind nicht nur für den privaten Gebrauch geeignet. Auch in der Schule, im Studium oder im Berufsleben erleichtern sie die Arbeit:</p>
+      <ul>
+        <li>📘 Schüler berechnen den Prozentsatz für Hausaufgaben</li>
+        <li>📊 Buchhalter analysieren die Mehrwertsteuer</li>
+        <li>🧮 Ingenieure führen mathematische Modelle durch</li>
+        <li>💼 Manager prüfen CO₂-Fußabdrücke für Nachhaltigkeit</li>
+        <li>☕ Kaffeeliebhaber kalkulieren die ideale Menge</li>
+      </ul>
+    </section>
+
+    <section class="faq section">
+      <h2>Häufig gestellte Fragen (FAQ)</h2>
+      <h3>Ist RechneProzente wirklich kostenlos?</h3>
+      <p>Ja, alle unsere Tools sind 100% kostenfrei und ohne Anmeldung nutzbar.</p>
+
+      <h3>Muss ich etwas installieren?</h3>
+      <p>Nein, unsere Rechner funktionieren vollständig online im Browser.</p>
+
+      <h3>Wie oft werden die Rechner aktualisiert?</h3>
+      <p>Wir führen regelmäßige Updates durch, um Genauigkeit und Benutzerfreundlichkeit zu garantieren.</p>
+    </section>
+
+    <section class="newsletter section">
+      <h2>Newsletter abonnieren</h2>
+      <p>Erhalten Sie aktuelle Infos zu neuen Rechnern, Tipps und Updates – direkt in Ihr Postfach.</p>
+      <form>
+        <input type="email" placeholder="Ihre E-Mail-Adresse" required />
+        <button type="submit">Abonnieren</button>
+      </form>
+    </section>
+
+    <section class="call-to-action section">
+      <h2>Bereit loszulegen?</h2>
+      <p>Probieren Sie unsere Tools aus – keine Registrierung, sofort einsatzbereit.</p>
+      <a href="alle.html" class="cta-button">Alle Rechner anzeigen</a>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+      });
+
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
+  </script>
 </body>
 </html>
