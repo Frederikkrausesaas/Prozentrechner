@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/prozent", "destination": "/prozent.html" }
+  ]
+}
