@@ -1,21 +1,29 @@
 <header class="site-header">
-  <div class="container">
-    <div class="logo">rechneProzente.de</div>
-    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
-    <nav class="main-nav" id="main-nav">
-      <ul>
+  <div class="header-container">
+    <div class="logo">
+      <a href="index.html">rechneProzente.de</a>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav>
+      <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Startseite</a></li>
-        <li><a href="prozente.html">Prozentrechner</a></li>
-        <li><a href="mehrwertsteuer.html">Mehrwertsteuerrechner</a></li>
-        <li><a href="rabatt.html">Rabattrechner</a></li>
-        <li><a href="schritterechner.html">Schrittrechner</a></li>
-        <li><a href="kaffeerechner.html">Kaffeerechner</a></li>
-        <li><a href="jeansgroessen.html">Jeansgrößenrechner</a></li>
-        <li><a href="taschenrechner.html">Taschenrechner</a></li>
-        <li><a href="co2rechner.html">CO₂-Rechner</a></li>
-        <li><a href="stromverbrauch.html">Stromverbrauchsrechner</a></li>
-        <li><a href="wasserkosten.html">Wasserkostenrechner</a></li>
-        <li><a href="alle.html">Alle Rechner</a></li>
+        <li>
+          <a href="#">Alle Rechner</a>
+          <ul class="dropdown">
+            <li><a href="prozentsatz.html">Prozentrechner</a></li>
+            <li><a href="mehrwertsteuer.html">Mehrwertsteuerrechner</a></li>
+            <li><a href="rabatt.html">Rabattrechner</a></li>
+            <li><a href="schritterechner.html">Schrittrechner</a></li>
+            <li><a href="kaffee.html">Kaffeerechner</a></li>
+            <li><a href="jeansgroessen.html">Jeansgrößenrechner</a></li>
+            <li><a href="taschenrechner.html">Taschenrechner</a></li>
+            <li><a href="co2.html">CO₂ Fußabdruck Rechner</a></li>
+            <li><a href="strom.html">Stromverbrauchsrechner</a></li>
+            <li><a href="wasser.html">Wasserkostenrechner</a></li>
+          </ul>
+        </li>
         <li><a href="kontakt.html">Kontakt</a></li>
       </ul>
     </nav>
