@@ -1,132 +1,127 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prozentrechner</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <!-- Logo links -->
-    <div class="logo">rechneProzente.de</div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Start</a></li>
-        <li><a href="prozentsatz.html">Prozentsatz</a></li>
-        <li><a href="mehrwertsteuer.html">Mehrwertsteuer</a></li>
-        <li><a href="rabatt.html">Rabatt</a></li>
-      </ul>
-    </nav>
-  </header>
+/* Schriftart hinzufügen */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-  <main>
-    <div class="container">
-      <!-- Willkommensbereich -->
-      <section class="welcome">
-        <h1>Prozentrechner: % Super-einfach Prozent berechnen – berechnen.de</h1>
-        <p>Hallo! Schön, dass du da bist!</p>
-        <p>Dein Frust mit Prozentrechnungen hat jetzt ein Ende – versprochen! Innerhalb der nächsten 12 Sekunden lösen wir garantiert dein Prozent-Problem. </p>
-        <p>Starte direkt mit unserem kinderleichten Prozentrechner oder frische dein Wissen mit übersichtlichen Formeln, Schritt-für-Schritt-Anleitungen und Eselsbrücken wieder auf.</p>
-      </section>
+/* Grundlegende Stile */
+body {
+  font-family: 'Roboto', sans-serif; /* Moderne Schriftart */
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
 
-      <div class="card">
-        <h2>Prozentrechner – Direkt loslegen!</h2>
+/* Navigation und Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 15px 30px;
+}
 
-        <!-- Rechner 1 -->
-        <h3>Wie viel sind X % von Y?</h3>
-        <div>
-          <input type="number" id="p1" placeholder="Prozentwert (z. B. 20)" />
-          <input type="number" id="g1" placeholder="Grundwert (z. B. 150)" />
-        </div>
-        <button onclick="rechne1()">Berechnen</button>
-        <p id="erg1"></p>
+header .logo {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
 
-        <!-- Rechner 2 -->
-        <h3>Wie viel % sind X von Y?</h3>
-        <div>
-          <input type="number" id="w2" placeholder="Teilwert (z. B. 30)" />
-          <input type="number" id="g2" placeholder="Grundwert (z. B. 150)" />
-        </div>
-        <button onclick="rechne2()">Berechnen</button>
-        <p id="erg2"></p>
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-        <!-- Rechner 3 -->
-        <h3>Von X zu Y – wie viel % ist das?</h3>
-        <div>
-          <input type="number" id="x3" placeholder="X (z. B. 100)" />
-          <input type="number" id="y3" placeholder="Y (z. B. 130)" />
-        </div>
-        <button onclick="rechne3()">Berechnen</button>
-        <p id="erg3"></p>
+header nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
 
-        <!-- Rechner 4 -->
-        <h3>Wie viel sind Y inkl. MwSt (19%)?</h3>
-        <input type="number" id="netto4" placeholder="Nettobetrag (z. B. 100)" />
-        <button onclick="rechne4()">Berechnen</button>
-        <p id="erg4"></p>
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
 
-        <!-- Rechner 5 -->
-        <h3>Wie viel waren X € vor MwSt?</h3>
-        <input type="number" id="brutto5" placeholder="Bruttobetrag (z. B. 119)" />
-        <button onclick="rechne5()">Berechnen</button>
-        <p id="erg5"></p>
+header nav ul li a:hover {
+  color: #ff8c00;
+}
 
-        <!-- Rechner 6 -->
-        <h3>X € sind wie viel mehr als Y € (in %)?</h3>
-        <div>
-          <input type="number" id="x6" placeholder="X (z. B. 130)" />
-          <input type="number" id="y6" placeholder="Y (z. B. 100)" />
-        </div>
-        <button onclick="rechne6()">Berechnen</button>
-        <p id="erg6"></p>
+/* Willkommensbereich */
+.welcome {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+}
 
-      </div>
-    </div>
-  </main>
+.welcome h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
 
-  <script>
-    function rechne1() {
-      const p = parseFloat(document.getElementById("p1").value);
-      const g = parseFloat(document.getElementById("g1").value);
-      const ergebnis = (p / 100) * g;
-      document.getElementById("erg1").innerText = `${p}% von ${g} sind ${ergebnis.toFixed(2)} €`;
-    }
+.welcome p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+}
 
-    function rechne2() {
-      const w = parseFloat(document.getElementById("w2").value);
-      const g = parseFloat(document.getElementById("g2").value);
-      const proz = (w / g) * 100;
-      document.getElementById("erg2").innerText = `${w} sind ${proz.toFixed(2)}% von ${g}`;
-    }
+/* Kartenstil */
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  width: 80%;
+  max-width: 800px;
+}
 
-    function rechne3() {
-      const x = parseFloat(document.getElementById("x3").value);
-      const y = parseFloat(document.getElementById("y3").value);
-      const diff = y - x;
-      const proz = (diff / x) * 100;
-      document.getElementById("erg3").innerText = `Von ${x} zu ${y} ist eine Änderung von ${proz.toFixed(2)}%`;
-    }
+.card h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
 
-    function rechne4() {
-      const netto = parseFloat(document.getElementById("netto4").value);
-      const brutto = netto * 1.19;
-      document.getElementById("erg4").innerText = `${netto} € netto sind ${brutto.toFixed(2)} € inkl. 19% MwSt`;
-    }
+/* Eingabefelder */
+input[type="number"] {
+  width: calc(50% - 10px);
+  padding: 8px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
 
-    function rechne5() {
-      const brutto = parseFloat(document.getElementById("brutto5").value);
-      const netto = brutto / 1.19;
-      document.getElementById("erg5").innerText = `${brutto} € brutto sind ${netto.toFixed(2)} € netto (19% MwSt)`;
-    }
+input[type="number"]:focus {
+  border-color: #ff8c00;
+  outline: none;
+}
 
-    function rechne6() {
-      const x = parseFloat(document.getElementById("x6").value);
-      const y = parseFloat(document.getElementById("y6").value);
-      const proz = ((x - y) / y) * 100;
-      document.getElementById("erg6").innerText = `${x} € sind ${proz.toFixed(2)}% mehr als ${y} €`;
-    }
-  </script>
-</body>
-</html>
+/* Buttons */
+button {
+  background-color: #007bff; /* Blau */
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: auto;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Ergebnisanzeige */
+p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 15px;
+  text-align: center;
+}
