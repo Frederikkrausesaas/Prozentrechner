@@ -37,6 +37,7 @@ header {
 .logo {
   font-size: 1.4rem;
   font-weight: 600;
+  color: white;
 }
 
 /* Navigation */
@@ -145,5 +146,10 @@ input[type=number] {
     flex-direction: column;
     gap: 0.5rem;
     margin-top: 1rem;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
