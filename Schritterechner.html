@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Schritte-Rechner: Schritte in Meter, Zeit & km</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f7fa;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .rechner-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: white;
+      border: 1px solid #d2dbe3;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      color: #002d5b;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    input[type="number"], select {
+      width: 100%;
+      padding: 0.6rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-weight: bold;
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      color: #002d5b;
+    }
+
+    .radio-group {
+      margin-top: 0.5rem;
+    }
+
+    .radio-group label {
+      display: block;
+      margin: 0.4rem 0;
+      font-weight: normal;
+    }
+
+    .info-text {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 0.5rem;
+    }
+
+    button {
+      background-color: #3399ff;
+      color: white;
+      border: none;
+      padding: 0.9rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      width: 100%;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #2b85dd;
+    }
+  </style>
+</head>
+<body>
+
+<div class="rechner-container">
+  <h1>Schritte-Rechner: Schritte in km, Meter & Zeit</h1>
+  <p>
+    Wie viele Schritte braucht man für einen Kilometer? Wie viele Meter legen Sie täglich zurück? Und wie lange dauert es, 10.000 Schritte zu gehen? Mit dem Schritte-Rechner finden Sie es heraus. Zusätzlich gibt es Tipps, wie Sie mehr Bewegung in Ihren Alltag bringen.
+  </p>
+  <p>
+    Der Schritte-Umrechner hilft bei allen wichtigen Berechnungen rund ums Gehen und Laufen: Schritte in Kilometer, Schritte in Meter, Kilometer in Schritte oder sogar Zeit in Schritte und Strecke.
+  </p>
+
+  <div class="section-title">Was genau wollen Sie berechnen?</div>
+  <div class="radio-group">
+    <label><input type="radio" name="rechenart" checked> Schritte in Meter umrechnen</label>
+    <label><input type="radio" name="rechenart"> Meter in Schritte umrechnen</label>
+    <label><input type="radio" name="rechenart"> Zeit (Laufdauer) in Meter</label>
+    <label><input type="radio" name="rechenart"> Zeit (Laufdauer) in Schritte</label>
+  </div>
+
+  <label for="steps">So viele Schritte sollen umgerechnet werden:</label>
+  <input type="number" id="steps" value="10000" min="0">
+
+  <div class="section-title">Geschwindigkeit</div>
+  <div class="radio-group">
+    <label><input type="radio" name="geschwindigkeit" checked> Normales Gehen/Spazieren (3,5 km/h)</label>
+    <label><input type="radio" name="geschwindigkeit"> Strammes Gehen/Walking (5,5 km/h)</label>
+    <label><input type="radio" name="geschwindigkeit"> Schnelles Walking (6,5 km/h)</label>
+    <label><input type="radio" name="geschwindigkeit"> Langsames Jogging (9 km/h)</label>
+    <label><input type="radio" name="geschwindigkeit"> Schnelleres Jogging (12 km/h)</label>
+    <label><input type="radio" name="geschwindigkeit"> Exakte Geschwindigkeit eingeben</label>
+  </div>
+
+  <div class="section-title">Wie lang ist Ihre Schrittlänge?</div>
+  <div class="radio-group">
+    <label><input type="radio" name="schrittlaenge"> Meine Größe: 1,50 m - 1,70 m</label>
+    <label><input type="radio" name="schrittlaenge" checked> Meine Größe: 1,70 m - 1,95 m</label>
+    <label><input type="radio" name="schrittlaenge"> Ich kenne meine genaue Schrittlänge</label>
+  </div>
+  <div class="info-text">
+    Die Schrittlänge hängt nicht nur von der Beinlänge ab! Auch der persönliche Laufstil und die Gangart sind entscheidend. Besonders Sportler sollten ihre Schrittlänge genau messen.
+  </div>
+
+  <button>Berechnen</button>
+</div>
+
+</body>
+</html>
